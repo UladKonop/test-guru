@@ -16,6 +16,9 @@ module TestGuru
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+    config.time_zone = "Minsk"
+    # The I18n library will use English as a default locale, i.e. if a different locale is not set, :en will be used for looking up translations.
+    
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
