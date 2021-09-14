@@ -4,10 +4,6 @@ module Version
   extend TestGuru
 
   def TestGuru.version
-    @version ||= '0.0.0'
-  end
-
-  def TestGuru.version=(str)
-    @version = str
+    '0.1.0'
   end
 end
