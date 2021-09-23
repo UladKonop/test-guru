@@ -2,7 +2,6 @@
 
 class Test < ApplicationRecord
   belongs_to :category
-  belongs_to :users
 
   has_many :user_tests
   has_many :users, through: :user_tests
