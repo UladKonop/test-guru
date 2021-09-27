@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Test < ApplicationRecord
-  belongs_to :author
+  belongs_to :author, class_name: 'User', optional: true
   belongs_to :category
+
   has_many :questions
 
   has_many :user_tests

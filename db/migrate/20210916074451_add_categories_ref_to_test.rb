@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddCategoriesRefToTest < ActiveRecord::Migration[6.1]
   def change
     remove_column :tests, :category_id
