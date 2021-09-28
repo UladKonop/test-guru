@@ -16,6 +16,9 @@ class Test < ApplicationRecord
   scope :middle, -> { level(2..4) }
   scope :hard, -> { level(5..Float::INFINITY) }
 
+  validates :title, presence: true, uniqueness: true
+  validates :level, numericality: { only_integer: true, greater_than: 0 }
+
   def self.test_titles(category)
     Test.sort_by_category(category).order(title: :desc).pluck(:title)
   end

@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id'
 
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+
   def tests_sort_by_level(level)
     tests.level(level)
   end
