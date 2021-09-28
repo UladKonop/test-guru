@@ -9,7 +9,9 @@ class Test < ApplicationRecord
   has_many :user_tests
   has_many :users, through: :user_tests
 
+  scope :sort_by_category, ->(category) { joins(:category).where(categories: { title: category }) }
+
   def self.test_titles(category)
-    Test.joins(:category).where(categories: { title: category }).order(title: :desc).pluck(:title)
+    Test.sort_by_category(category).order(title: :desc).pluck(:title)
   end
 end
