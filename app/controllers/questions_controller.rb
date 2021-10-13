@@ -2,12 +2,12 @@
 
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy]
-  before_action :find_test, only: %i[new create]
+  before_action :find_test, only: %i[index new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = Question.where(test_id: params[:test_id]).to_a
+    @questions = @test.questions
 
     render :index
   end
@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path
+    redirect_to test_questions_path(params[:test_id])
   end
 
   private
