@@ -8,7 +8,7 @@
 <% @questions.each do |question| %>
   <tr>   
     <td><%= question.body %></td>   
-    <td><%= link_to 'Delete', test_question_path(params[:test_id], id: question.id),
+    <td><%= link_to 'Delete', question_path(id: question.id,test_id: params[:test_id]),
                     method: :delete %></td>
   </tr>
 <% end %>
