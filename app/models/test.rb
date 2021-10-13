@@ -16,7 +16,7 @@ class Test < ApplicationRecord
   scope :middle, -> { level(2..4) }
   scope :hard, -> { level(5..Float::INFINITY) }
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than: 0 },
                     uniqueness: { scope: :title }
 

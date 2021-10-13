@@ -1,0 +1,15 @@
+<h1>Listing Questions</h1>
+<%= link_to 'New question', new_test_question_path %>
+<table>
+  <tr>   
+    <th>Body</th>
+    <th colspan="2"></th>
+  </tr> 
+<% @questions.each do |question| %>
+  <tr>   
+    <td><%= question.body %></td>   
+    <td><%= link_to 'Delete', question_path(id: question.id,test_id: params[:test_id]),
+                    method: :delete %></td>
+  </tr>
+<% end %>
+</table>
