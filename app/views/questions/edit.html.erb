@@ -1,7 +1,7 @@
-<h1>New question</h1>
-
-<%= form_for :question, url: test_questions_path(params[:test_id]), method: :post do |f| %>
-  <p>
+<h1>Edit question</h1>
+ <%= console %>
+<%= form_for :question, url: question_path(id: params[:id], test_id: params[:test_id]), method: :put do |f| %>
+   <p>
     <%= f.label :body %><br>
     <%= f.text_field :body %>
   </p>
