@@ -1,14 +1,5 @@
-<h1>New question</h1>
+<%= render 'shared/header' %>
 
-<%= form_for :question, url: test_questions_path(params[:test_id]), method: :post do |f| %>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<%= render 'form', test: @test, question: @question%>
 
-<% end %>
-
-<%= link_to 'Back', test_questions_path(params[:test_id]) %>
+<%= link_to 'Back', test_questions_path(@test) %>

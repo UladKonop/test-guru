@@ -1,14 +1,5 @@
-<h1>Edit question</h1>
- <%= console %>
-<%= form_for :question, url: question_path(id: params[:id], test_id: params[:test_id]), method: :put do |f| %>
-   <p>
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<%= render 'shared/header' %>
 
-<% end %>
+<%= render 'form', test: nil, question: @question %>
 
-<%= link_to 'Back', test_questions_path(params[:test_id]) %>
+<%= link_to 'Back', test_questions_path(@test) %>
