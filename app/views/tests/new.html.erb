@@ -1,28 +1,6 @@
 <h1>New test</h1>
 
-<%= form_for :test, url: tests_path, method: :post do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :level %><br>
-    <%= f.text_field :level %>
-  </p>
-  <p>
-    <%= f.label :category %>
-    <%= f.select :category_id do %>
-      <% categories.each do |category| %>
-        <%= content_tag(:option, "#{category.title}", value: category.id) %>
-      <% end %>
-    <% end %>    
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', tests_path %>
 
