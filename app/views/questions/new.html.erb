@@ -1,9 +1,1 @@
-<%= form_for :question, url: test_questions_path(@test), method: :post do |f| %>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'form', test: @test, question: @question%>
