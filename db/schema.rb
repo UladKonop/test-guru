@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2021_10_26_113000) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "correct_questions", default: 0
-    t.integer "questions_id"
-    t.index ["questions_id"], name: "index_user_tests_on_questions_id"
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_user_tests_on_question_id"
     t.index ["test_id"], name: "index_user_tests_on_test_id"
     t.index ["user_id"], name: "index_user_tests_on_user_id"
   end
@@ -73,5 +73,5 @@ ActiveRecord::Schema.define(version: 2021_10_26_113000) do
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
-  add_foreign_key "user_tests", "questions", column: "questions_id"
+  add_foreign_key "user_tests", "questions"
 end
