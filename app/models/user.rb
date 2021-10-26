@@ -14,6 +14,6 @@ class User < ApplicationRecord
   end
 
   def user_test(test)
-    user_tests.find_by(test_id: test.id)
+    user_tests.order(id: :desc).find_by(test_id: test.id)
   end
 end
