@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def tests_sort_by_level(level)
     tests.level(level)
   end
+
+  def user_test(test)
+    user_tests.find_by(test_id: test.id)
+  end
 end
