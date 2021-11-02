@@ -1,14 +1,10 @@
 
 <h1> The <%= @user_test.test.title %> Test was 
-
-  <%=
-    if @user_test.passed?
-      'Completed!'
-    else
-      'NOT Completed!'
-    end
-  %>
-
+  <%  if @user_test.passed? %>
+  <p style="color: green;"> Completed! Success rate: <%= @user_test.rate %></p>      
+  <%  else %>   
+    <p style="color: red;">NOT Completed! Success rate: <%= @user_test.rate %></p>
+  <%  end %>
 </h1>
 
 <%= link_to 'Back', tests_path %>
