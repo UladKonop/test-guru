@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UserTest < ApplicationRecord
+  SUCCESS_RATE = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :question, optional: true
@@ -15,6 +17,14 @@ class UserTest < ApplicationRecord
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
+  end
+
+  def rate
+    correct_questions.to_f * 100 / test.questions.count
+  end
+
+  def passed?
+    rate >= SUCCESS_RATE
   end
 
   private
