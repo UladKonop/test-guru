@@ -6,6 +6,7 @@ class UserTest < ApplicationRecord
   belongs_to :question, optional: true
 
   before_validation :before_validation_set_first_question, on: :create
+  before_update :before_update_assign_next_question
 
   def completed?
     question.nil?
@@ -13,12 +14,14 @@ class UserTest < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-
-    self.question = next_question
     save!
   end
 
   private
+
+  def before_update_assign_next_question
+    self.question = next_question
+  end
 
   def before_validation_set_first_question
     self.question = test.questions.first if test.present?
