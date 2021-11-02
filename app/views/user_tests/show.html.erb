@@ -10,6 +10,14 @@
       <%= b.check_box id: "answer_ids_#{b.object.id}" %><br>
       <%= b.label %>
     </p>
-  <% end %>  
+  <% end %>
+
+<p>
+  Question: 
+  <%= @user_test.serial_number_of_question %> 
+  out of
+  <%= @user_test.test.questions.count %>
+</p>
+
   <p><%= form.submit 'Next' %></p>
 <% end %>

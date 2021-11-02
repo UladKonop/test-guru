@@ -20,11 +20,15 @@ class UserTest < ApplicationRecord
   end
 
   def rate
-    correct_questions.to_f * 100 / test.questions.count
+    (correct_questions.to_f * 100 / test.questions.count).round(2)
   end
 
   def passed?
     rate >= SUCCESS_RATE
+  end
+
+  def serial_number_of_question
+    test.questions.count - test.questions.order(:id).where('id > ?', question.id).count
   end
 
   private
