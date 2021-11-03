@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def user_test(test)
     user_tests.order(id: :desc).find_by(test_id: test.id)
   end
+
+  def authenticate(password_string)
+    digest(password_string) == password_digest ? self : false
+  end
 end
