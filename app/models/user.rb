@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  include Auth
-
   has_many :user_tests
   has_many :tests, through: :user_tests
 
