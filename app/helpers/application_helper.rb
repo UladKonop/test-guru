@@ -9,4 +9,10 @@ module ApplicationHelper
     link_to project_name.to_s, "https://github.com/#{author}/#{repo}", target: '_blank',
                                                                        rel: 'noopener'
   end
+
+  def flash_message
+    flash.map do |key, msg|
+      content_tag :p, msg, id: key, class: 'flash alert'
+    end.join.html_safe
+  end
 end
