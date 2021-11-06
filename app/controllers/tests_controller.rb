@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
+  before_action :saved_request_url
   before_action :authenticate_user!
   before_action :set_test, except: %i[index new create]
   before_action :set_user, only: :start
@@ -37,8 +38,8 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.user_test(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.user_test(@test)
   end
 
   private

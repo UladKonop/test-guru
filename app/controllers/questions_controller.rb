@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  before_action :saved_request_url
+  before_action :authenticate_user!
   before_action :set_test, only: %i[create new]
   before_action :set_question, except: %i[create new]
 

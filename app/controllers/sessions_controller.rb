@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def create
     if @user&.authenticate(params[:password])
-      redirect_to tests_path
+      redirect_to session.delete(:return_to)
     else
       render :new
     end
