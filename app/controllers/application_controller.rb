@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user,
-                :logged_in?
+                :logged_in?,
+                :saved_request_url
 
   private
 
@@ -20,5 +21,9 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_user
+  end
+
+  def saved_request_url
+    session[:return_to] = request.fullpath
   end
 end
