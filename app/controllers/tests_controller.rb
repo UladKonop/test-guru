@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :find_test, except: %i[index new create]
+  before_action :authenticate_user!
+  before_action :set_test, except: %i[index new create]
   before_action :set_user, only: :start
 
   def index
@@ -46,7 +47,7 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level, :category_id)
   end
 
-  def find_test
+  def set_test
     @test = Test.find(params[:id])
   end
 
