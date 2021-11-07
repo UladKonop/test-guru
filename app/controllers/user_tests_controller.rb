@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class UserTestsController < ApplicationController
-  before_action :saved_request_url
-  before_action :authenticate_user!
   before_action :set_user_test, only: %i[show result update]
 
   def show; end

@@ -2,13 +2,14 @@
 
 class SessionsController < ApplicationController
   before_action :set_user, only: :create
-  after_action :set_user_id, only: :create
+  skip_before_action :authenticate_user!, only: %i[new create]
 
   def new; end
 
   def create
     if @user&.authenticate(params[:password])
-      redirect_to session.delete(:return_to)
+      session[:user_id] = @user.id
+      redirect_to session.delete(:return_to) || root_path
     else
       render :new
     end
@@ -23,9 +24,5 @@ class SessionsController < ApplicationController
 
   def set_user
     @user = User.find_by(email: params[:email])
-  end
-
-  def set_user_id
-    session[:user_id] = @user.id
   end
 end

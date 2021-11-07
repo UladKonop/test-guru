@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :saved_request_url
-  before_action :authenticate_user!
   before_action :set_test, except: %i[index new create]
-  before_action :set_user, only: :start
 
   def index
     @tests = Test.all
@@ -50,9 +47,5 @@ class TestsController < ApplicationController
 
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    @user = User.first
   end
 end
