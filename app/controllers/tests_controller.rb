@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :find_test, except: %i[index new create]
-  before_action :set_user, only: :start
+  before_action :set_test, except: %i[index new create]
 
   def index
     @tests = Test.all
@@ -36,8 +35,8 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.user_test(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.user_test(@test)
   end
 
   private
@@ -46,11 +45,7 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level, :category_id)
   end
 
-  def find_test
+  def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    @user = User.first
   end
 end
