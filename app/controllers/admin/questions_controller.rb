@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < ApplicationController
   before_action :set_test, only: %i[create new]
   before_action :set_question, except: %i[create new]
 
@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     question = @test.questions.build(question_params)
 
     if question.save
-      redirect_to test_path(@test)
+      redirect_to admin_test_path(@test)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(params[:test_id])
+      redirect_to admin_test_path(params[:test_id])
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(params[:test_id])
+    redirect_to admin_test_path(params[:test_id])
   end
 
   private

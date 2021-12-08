@@ -3,13 +3,9 @@
 Rails.application.routes.draw do
   root 'tests#index'
 
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   resources :tests, only: :index do
-    resources :questions, shallow: true, except: :index do
-      resources :answers, shallow: true, except: :index
-    end
-
     member do
       post :start
     end
@@ -22,6 +18,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests
+    resources :tests do
+      resources :questions, shallow: true do
+        resources :answers, shallow: true
+      end
+    end
   end
 end
