@@ -28,11 +28,6 @@ class Users::SessionsController < Devise::SessionsController
   protected
 
   def after_sign_in_path_for(resource)
-    case resource
-    when Admin
-      admin_tests_path
-    when User
-      tests_path
-    end
+    resource.admin? ? admin_tests_path : tests_path
   end
 end

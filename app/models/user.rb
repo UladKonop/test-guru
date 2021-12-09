@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def user_test(test)
     user_tests.order(id: :desc).find_by(test_id: test.id)
   end
+
+  def admin?
+    instance_of?(Admin)
+  end
 end
