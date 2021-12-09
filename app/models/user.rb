@@ -1,12 +1,19 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :confirmable
+
   has_many :user_tests
   has_many :tests, through: :user_tests
 
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id'
-
-  has_secure_password
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
@@ -16,5 +23,9 @@ class User < ApplicationRecord
 
   def user_test(test)
     user_tests.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def admin?
+    instance_of?(Admin)
   end
 end

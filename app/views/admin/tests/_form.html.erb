@@ -1,0 +1,23 @@
+<%= form_for :test, url: admin_tests_path, method: :post do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :level %><br>
+    <%= form.text_field :level %>
+  </p>
+  <p>
+    <%= form.label :category %>
+    <%= form.select :category_id do %>
+      <% categories.each do |category| %>
+        <%= content_tag(:option, "#{category.title}", value: category.id) %>
+      <% end %>
+    <% end %>    
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
