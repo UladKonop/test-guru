@@ -1,2 +1,57 @@
 ru:
-  hello: "Привет, мир"
+  helpers:
+    submit:
+      create: "Создать"
+      update: "Обновить"
+      submit: "Сохранить"
+    select:
+      prompt: "Сделайте выбор"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+
+  shared:
+    errors:
+      header:
+        few: ""
+        many: ""
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests:
+    index:
+      header: "Доступные тесты:"
+      title: "Название"
+      level: "Уровень"
+      questions_amount: "Количество вопросов"
+      actions: "Действия"
+      start: "Старт"
+
+
+  user_tests:
+    result:
+      header: "Тест %{title} успешно завершён"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты:"
+        new_test: "Новый тест"
+        title: "Название"
+        level: "Уровень"
+        questions_amount: "Количество вопросов"
+        actions: "Действия"
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+      new:
+        header: "Новый тест"
+        back: "Назад"
+      create:
+        success: "Тест успешно создан!"
+
+  test_mailer:
+    completed_test:
+      subject: ""
