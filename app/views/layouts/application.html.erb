@@ -11,16 +11,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-
-  <%= render 'shared/nav' %>
-
-  <div class='container'>
-    <%= render 'shared/flash' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
-  </div>
-
+  <body>   
+    <div class='container'>
+      <%= render 'shared/nav' %>
+      <%= render 'shared/flash' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
