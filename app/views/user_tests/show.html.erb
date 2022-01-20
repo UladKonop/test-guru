@@ -1,8 +1,8 @@
 <h1>Pass the <%= @user_test.test.title %> Test</h1>
 
-<b>
-  <%= @user_test.question.body %>
-</b>
+<p>
+  <b><%= @user_test.question.body %></b>
+</p>
 
 <%= form_with url: user_test_path(@user_test), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @user_test.question.answers, :id, :body, include_hidden: false do |b| %>
@@ -19,5 +19,6 @@
   <%= @user_test.test.questions.count %>
 </p>
 
+  <p><%= link_to 'Gist question', gist_user_test_path(@user_test), method: :post%></p>
   <p><%= form.submit 'Next' %></p>
 <% end %>
