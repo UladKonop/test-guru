@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # Authentication
 gem 'devise'
 
+# Ruby toolkit for the GitHub API
+gem 'octokit', '~> 4.0'
+
 # Provide support for additional languages
 gem 'rails-i18n'
 

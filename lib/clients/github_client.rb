@@ -1,6 +1,5 @@
 class GithubClient
 
-  ROOT_ENDPOINT = 'https://api.github.com'
   ACCESS_TOKEN = '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'
 
   def initialize
@@ -8,17 +7,16 @@ class GithubClient
   end
 
   def create_gist(params)
-    @http_client.post('/gists') do |request|
-      request.headers['Authorization'] = "token #{ACCESS_TOKEN}"
-      request.headers['Content-Type'] = 'application/json'
-      request.body = params.to_json
-    end
+    result = @http_client.create_gist(params.to_json)
+  rescue StandardError
+    false
+  else
+    result
   end
 
   private
 
   def setup_http_client
-    Faraday.new(url: ROOT_ENDPOINT)
+    Octokit::Client.new(access_token: ACCESS_TOKEN)
   end
-
 end
