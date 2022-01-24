@@ -30,6 +30,9 @@ en:
   user_tests:
     result:
       header: "Test %{title} successfully finished!"
+    gist:
+      success: "Gist was successfully saved. URL: %{url}"
+      failure: 'While gist saving error occured'
 
   admin:
     tests:
@@ -48,3 +51,6 @@ en:
         back: "Back"
       create:
         success: "Test was successfully created!"
+
+    gist_question_service:
+      description: "Question from TestGuru about %{test}"   
