@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-User.create!(name: 'Foo', email: '123@gmail.com')
-User.create!(name: 'Bar', email: '456@gmail.com')
+User.create!(first_name: 'user', last_name: 'user', email: 'user@user.com', password: 'user11')
 
 category = Category.create!(title: 'frontend')
 category1 = Category.create!(title: 'backend')
