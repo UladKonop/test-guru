@@ -51,6 +51,13 @@ en:
         back: "Back"
       create:
         success: "Test was successfully created!"
+    gists:
+      index:
+        header: "All created Gists"
+        question: "Question"
+        url: "URL"
+        user: "User"
+        back: "Back to tests"
 
     gist_question_service:
       description: "Question from TestGuru about %{test}"   

@@ -54,6 +54,13 @@ ru:
         back: "Назад"
       create:
         success: "Тест успешно создан!"
+    gists:
+      index:
+        header: "Все соданные Gists"
+        question: "Вопрос"
+        url: "URL"
+        user: "Пользователь"
+        back: "Назад к тестам"
 
   test_mailer:
     completed_test:
