@@ -10,6 +10,8 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
+  has_many :gists
+
   has_many :user_tests
   has_many :tests, through: :user_tests
 
