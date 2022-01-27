@@ -1,7 +1,5 @@
 class GithubClient
 
-  ACCESS_TOKEN = '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'
-
   def initialize
     @http_client = setup_http_client
   end
