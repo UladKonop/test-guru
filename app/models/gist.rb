@@ -10,7 +10,7 @@ class Gist < ApplicationRecord
     question.body.truncate(QUESTION_BODY_LIMIT, omission: '...')
   end
 
-  def hash
+  def hash_url
     url.partition('gist.github.com/').last
   end
 end
