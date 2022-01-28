@@ -33,6 +33,9 @@ ru:
   user_tests:
     result:
       header: "Тест %{title} успешно завершён"
+    gist:
+      success: 'Gist успешно сохранён. URL: %{url}'
+      failure: 'Во время сохранения gist возникла ошибка'
 
   admin:
     tests:
@@ -51,7 +54,17 @@ ru:
         back: "Назад"
       create:
         success: "Тест успешно создан!"
+    gists:
+      index:
+        header: "Все соданные Gists"
+        question: "Вопрос"
+        url: "URL"
+        user: "Пользователь"
+        back: "Назад к тестам"
 
   test_mailer:
     completed_test:
       subject: ""
+
+  gist_question_service:
+    description: "Вопрос с TestGuru о %{test}"

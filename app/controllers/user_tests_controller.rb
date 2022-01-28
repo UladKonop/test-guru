@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserTestsController < ApplicationController
-  before_action :set_user_test, only: %i[show result update]
+  before_action :set_user_test, only: %i[show result update gist]
 
   def show; end
 
@@ -16,6 +16,20 @@ class UserTestsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    gist = GistQuestionService.new(@user_test.question)
+    result = gist.call
+    flash_options = if gist.success?
+                      @user_test.user.gists.create(question: @user_test.question,
+                                                   url: result.html_url)
+                      { notice: t('.success', url: result[:html_url]) }
+                    else
+                      { alert: t('.failure') }
+                    end
+
+    redirect_to @user_test, flash_options
   end
 
   private
