@@ -19,8 +19,9 @@ class UserTestsController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@user_test.question).call
-    flash_options = if result
+    gist = GistQuestionService.new(@user_test.question)
+    result = gist.call
+    flash_options = if gist.success?
                       @user_test.user.gists.create(question: @user_test.question,
                                                    url: result.html_url)
                       { notice: t('.success', url: result[:html_url]) }
