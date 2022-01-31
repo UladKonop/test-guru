@@ -28,7 +28,7 @@ class UserTest < ApplicationRecord
   end
 
   def serial_number_of_question
-    test.questions.index(question) + 1
+    test.questions.index(question)
   end
 
   private

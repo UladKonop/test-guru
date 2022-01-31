@@ -6,7 +6,7 @@
 
 <%= content_tag :div,
                 class: 'progress',
-                data: { progress: (@user_test.serial_number_of_question.to_f - 1) / @user_test.test.questions.count * 100 } do %>
+                data: { progress: (@user_test.serial_number_of_question.to_f) / @user_test.test.questions.count * 100 } do %>
   <div class="progress-bar"></div>
 <% end %>
 
