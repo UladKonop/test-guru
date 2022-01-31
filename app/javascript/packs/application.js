@@ -10,6 +10,7 @@ import "channels"
 
 require("utilities/sorting")
 require("utilities/passwords_matching")
+require("utilities/form_inline")
 
 Rails.start()
 Turbolinks.start()
