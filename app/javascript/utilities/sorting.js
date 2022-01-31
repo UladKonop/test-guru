@@ -17,7 +17,7 @@ function sortRowsByTitle(){
         sortedRows.sort(compareRowsAsc)
         this.querySelector('.octicon-arrow-up').classList.remove('hide')
         this.querySelector('.octicon-arrow-down').classList.add('hide')
-    } else{
+    } else {
         sortedRows.sort(compareRowsDesc)
         this.querySelector('.octicon-arrow-down').classList.remove('hide')
         this.querySelector('.octicon-arrow-up').classList.add('hide')
