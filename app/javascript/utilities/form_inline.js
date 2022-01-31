@@ -22,9 +22,9 @@ function formInLineLinkHandler(event){
 
 function formInLineHandler(testId){
   var link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]')
+  if (!link){ return }
   var testTitle = document.querySelector('.test-title[data-test-id="' + testId + '"]')
   var formInLine = document.querySelector('.form-inline[data-test-id="' + testId + '"]')
-
 
   if (formInLine.classList.contains('hide')){
     testTitle.classList.add('hide')
