@@ -54,6 +54,11 @@ ru:
         back: "Назад"
       create:
         success: "Тест успешно создан!"
+      form_inline: 
+        submit: 'Ок'
+      test:
+        delete: 'Удалить'
+        edit: 'Редактировать'
     gists:
       index:
         header: "Все соданные Gists"
