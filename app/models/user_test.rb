@@ -28,7 +28,7 @@ class UserTest < ApplicationRecord
   end
 
   def serial_number_of_question
-    test.questions.count - test.questions.order(:id).where('id > ?', question.id).count
+    test.questions.index(question) + 1
   end
 
   private

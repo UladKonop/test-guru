@@ -4,6 +4,12 @@
   <b><%= @user_test.question.body %></b>
 </p>
 
+<%= content_tag :div,
+                class: 'progress',
+                data: { progress: (@user_test.serial_number_of_question.to_f - 1) / @user_test.test.questions.count * 100 } do %>
+  <div class="progress-bar"></div>
+<% end %>
+
 <%= form_with url: user_test_path(@user_test), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @user_test.question.answers, :id, :body, include_hidden: false do |b| %>
     <p>
