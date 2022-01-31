@@ -2,11 +2,11 @@
 
 class Admin::TestsController < Admin::BaseController
   skip_before_action :authenticate_user!
-  before_action :set_test, except: %i[index new create]
 
-  def index
-    @tests = Test.all
-  end
+  before_action :set_test, except: %i[index new create]
+  before_action :set_tests, only: %i[index update_inline]
+
+  def index; end
 
   def show; end
 
@@ -24,9 +24,17 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to tests_path
+      redirect_to admin_tests_path
     else
       render :edit
+    end
+  end
+
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
+    else
+      render :index
     end
   end
 
@@ -43,5 +51,9 @@ class Admin::TestsController < Admin::BaseController
 
   def set_test
     @test = Test.find(params[:id])
+  end
+
+  def set_tests
+    @tests = Test.all
   end
 end
