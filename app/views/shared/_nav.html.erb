@@ -8,7 +8,8 @@
       <%= link_to "Gists", admin_gists_path %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       <% else %>
-      Welcome, <b><%= current_user.email %></b> Guru | 
+      Welcome, <b><%= current_user.email %></b> Guru |
+      <%= link_to "Feedback", new_feedback_path %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       <% end %>
     <% else %>
