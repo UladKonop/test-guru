@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+Answer.delete_all
+Question.delete_all
+Test.delete_all
+User.delete_all
+Category.delete_all
+
 User.create!(first_name: 'user', last_name: 'user', email: 'user@user.com', password: 'user11')
 User.create!(first_name: 'admin', last_name: 'admin', email: 'admin@admin.com', password: 'admin11', type: 'Admin')
 
