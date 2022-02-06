@@ -2,7 +2,7 @@
 
 class FeedbacksMailer < ApplicationMailer
   def send_feedback(user, params)
-    @user = user
+    @user = user.email
     @title = params[:title]
     @body = params[:body]
 
