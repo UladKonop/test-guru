@@ -16,7 +16,7 @@ class Admin::QuestionsController < ApplicationController
     if question.save
       redirect_to admin_test_path(@test)
     else
-      render :new
+      redirect_to new_admin_test_question_path(@test), alert: 'Question was not created.'
     end
   end
 
