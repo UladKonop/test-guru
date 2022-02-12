@@ -4,6 +4,8 @@ class Admin::QuestionsController < ApplicationController
   before_action :set_test, only: %i[create new]
   before_action :set_question, except: %i[create new]
 
+  after_action :check_questions_amount, only: :destroy
+
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def new
@@ -53,5 +55,9 @@ class Admin::QuestionsController < ApplicationController
 
   def rescue_with_question_not_found
     render plain: 'Question was not found'
+  end
+
+  def check_questions_amount
+    @question.test.update!(ready_to_start: false) if @question.test.questions.count.zero?
   end
 end
