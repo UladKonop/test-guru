@@ -4,7 +4,7 @@ class TestsController < ApplicationController
   before_action :set_test, only: %i[start]
 
   def index
-    @tests = Test.joins(:questions).group('id')
+    @tests = Test.where(ready_to_start: true)
   end
 
   def start
