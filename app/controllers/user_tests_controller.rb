@@ -3,10 +3,7 @@
 class UserTestsController < ApplicationController
   before_action :set_user_test, only: %i[show result update gist]
 
-  def show
-    session[:return_to] ||= request.referer
-    redirect_to session.delete(:return_to), alert: 'No questions present.' unless @user_test.question
-  end
+  def show; end
 
   def result; end
 
