@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+UserTest.delete_all
+Gist.delete_all
 Answer.delete_all
 Question.delete_all
 Test.delete_all
