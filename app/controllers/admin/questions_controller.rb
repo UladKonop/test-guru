@@ -7,16 +7,16 @@ class Admin::QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def new
-    @question = @test.questions.build
+    @question = @test.questions.new
   end
 
   def create
-    question = @test.questions.build(question_params)
+    @question = @test.questions.new(question_params)
 
-    if question.save
+    if @question.save
       redirect_to admin_test_path(@test)
     else
-      redirect_to new_admin_test_question_path(@test), alert: 'Question was not created.'
+      render :new, status: :unprocessable_entity
     end
   end
 
