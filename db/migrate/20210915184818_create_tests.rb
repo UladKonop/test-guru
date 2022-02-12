@@ -6,6 +6,7 @@ class CreateTests < ActiveRecord::Migration[6.1]
       t.string :title
       t.integer :level
       t.integer :category_id
+      t.boolean :ready_to_start, default: false
 
       t.timestamps
     end
