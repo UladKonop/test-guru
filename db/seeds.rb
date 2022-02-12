@@ -12,7 +12,7 @@ user = User.new(first_name: 'user', last_name: 'user', email: 'user@user.com', p
 user.skip_confirmation!
 user.save!
 
-admin = User.create!(first_name: 'admin',
+admin = User.new(first_name: 'admin',
                      last_name: 'admin',
                      email: 'admin@admin.com',
                      password: 'admin11',
