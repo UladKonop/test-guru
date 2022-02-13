@@ -13,10 +13,10 @@ user.skip_confirmation!
 user.save!
 
 admin = User.new(first_name: 'admin',
-                     last_name: 'admin',
-                     email: 'admin@admin.com',
-                     password: 'admin11',
-                     type: 'Admin')
+                 last_name: 'admin',
+                 email: 'admin@admin.com',
+                 password: 'admin11',
+                 type: 'Admin')
 admin.skip_confirmation!
 admin.save!
 
