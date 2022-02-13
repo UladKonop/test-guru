@@ -58,6 +58,6 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def check_questions_amount
-    @question.test.update!(ready_to_start: false) if @question.test.questions.count.zero?
+    @question.test.update(ready_to_start: false) if @question.test.questions.count.zero?
   end
 end

@@ -18,7 +18,7 @@ class Admin::AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      @answer.question.test.update!(ready_to_start: true)
+      @answer.question.test.update(ready_to_start: true)
       redirect_to admin_answer_path(@answer), notice: 'Answer was successfully created.'
     else
       render :new, status: :unprocessable_entity
@@ -54,6 +54,6 @@ class Admin::AnswersController < ApplicationController
   end
 
   def check_answers_amount
-    @answer.question.test.update!(ready_to_start: false) if @answer.question.answers.count.zero?
+    @answer.question.test.update(ready_to_start: false) if @answer.question.answers.count.zero?
   end
 end
