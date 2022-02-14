@@ -1,11 +1,14 @@
 <h1><%= question_header(@question) %></h1>
 <%= form_with model: [:admin, test, question], local: true do |form| %>
+  <%= render 'shared/errors', resource: question %>
+
   <p>
-    <%= form.label :body %><br>
-    <%= form.text_field :body %>
-    <p>
-    <p>
-    <%= form.button 'Save', name: :test_id, value: params[:test_id] %>
+    <%= form.label :body, class: 'form-label' %>
+    <%= form.text_field :body, class: 'form-control' %>
+  <p>
+
+  <p>
+    <%= form.button 'Save', name: :test_id, value: params[:test_id], class: "btn btn-primary" %>
   </p>
 <% end %>
 

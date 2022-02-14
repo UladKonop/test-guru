@@ -1,6 +1,24 @@
 # frozen_string_literal: true
 
-User.create!(first_name: 'user', last_name: 'user', email: 'user@user.com', password: 'user11')
+UserTest.delete_all
+Gist.delete_all
+Answer.delete_all
+Question.delete_all
+Test.delete_all
+User.delete_all
+Category.delete_all
+
+user = User.new(first_name: 'user', last_name: 'user', email: 'user@user.com', password: 'user11')
+user.skip_confirmation!
+user.save!
+
+admin = User.new(first_name: 'admin',
+                 last_name: 'admin',
+                 email: 'admin@admin.com',
+                 password: 'admin11',
+                 type: 'Admin')
+admin.skip_confirmation!
+admin.save!
 
 category = Category.create!(title: 'frontend')
 category1 = Category.create!(title: 'backend')
@@ -35,3 +53,11 @@ Answer.create!(body: 'CTR+T.', question_id: question4.id, correct: true)
 Answer.create!(body: 'whoami', question_id: question5.id, correct: true)
 Answer.create!(body: 'Framework writed on Ruby', question_id: question6.id, correct: true)
 Answer.create!(body: 'ECMAScript (standart ECMA-262)', question_id: question7.id, correct: true)
+
+test.update!(ready_to_start: true)
+test1.update!(ready_to_start: true)
+test2.update!(ready_to_start: true)
+test3.update!(ready_to_start: true)
+test4.update!(ready_to_start: true)
+test5.update!(ready_to_start: true)
+test6.update!(ready_to_start: true)

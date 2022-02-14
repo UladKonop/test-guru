@@ -8,13 +8,17 @@ class UserTestsController < ApplicationController
   def result; end
 
   def update
-    @user_test.accept!(params[:answer_ids])
+    if params[:answer_ids].nil?
+      flash[:alert] = 'Select at least one question'
+    else
+      @user_test.accept!(params[:answer_ids])
+    end
 
     if @user_test.completed?
       TestsMailer.completed_test(@user_test).deliver_now
       redirect_to result_user_test_path(@user_test)
     else
-      render :show
+      redirect_to user_test_path(@user_test)
     end
   end
 
