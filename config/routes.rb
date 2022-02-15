@@ -3,7 +3,8 @@
 Rails.application.routes.draw do
   root 'tests#index'
 
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+  devise_for :users, controllers: { sessions: 'users/sessions',
+                                    registrations: 'users/registrations' }
 
   resources :tests, only: :index do
     member do
@@ -27,7 +28,10 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
+    resources :badges
   end
 
   resources :feedbacks, only: %i[new create]
+
+  resources :badges, only: %i[index show]
 end
