@@ -7,5 +7,5 @@ class Badge < ApplicationRecord
   validates :body, presence: true
   validates :rule_type, presence: true
 
-  RULE_TYPES = %w[Category First Level].freeze
+  RULE_TYPES = %w[category first level].freeze
 end
