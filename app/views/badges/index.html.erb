@@ -1,0 +1,27 @@
+<h2>All badges:</h2>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('.title') %></th>
+      <th scope="col"><%= t('.body') %></th>
+      <th scope="col"><%= t('.rule_value') %></th>
+      <th scope="col"><%= t('.actions') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @badges %>
+  </tbody>
+</table>
+
+<table class="table mt-3">
+  <% if !@user_badges.empty? %>
+    <h2>User badges:</h2>
+    <tbody>
+      <%= render @user_badges %>
+    </tbody>
+  <% end %>
+</table>
+
+<%= link_to t('.back'), root_path %>
