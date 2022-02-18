@@ -31,6 +31,18 @@ class UserTest < ApplicationRecord
     test.questions.index(question)
   end
 
+  def timer
+    test.timer * 60
+  end
+
+  def time_left
+    timer.zero? ? 0 : timer - (Time.zone.now - created_at.to_time)
+  end
+
+  def expired?
+    time_left.negative?
+  end
+
   private
 
   def before_update_assign_next_question
