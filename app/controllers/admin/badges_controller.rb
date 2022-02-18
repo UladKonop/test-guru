@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class Admin::BadgesController < Admin::BaseController
-  before_action :set_badges, only: %i[index]
   before_action :set_badge, only: %i[show edit update destroy]
   before_action :set_rules, only: %i[new create edit update]
 
-  def index; end
+  def index
+    @badges = Badge.all
+  end
 
   def show; end
 
@@ -41,10 +42,6 @@ class Admin::BadgesController < Admin::BaseController
 
   def set_badge
     @badge = Badge.find(params[:id])
-  end
-
-  def set_badges
-    @badges = Badge.all
   end
 
   def set_rules
