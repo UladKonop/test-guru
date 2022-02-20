@@ -7,6 +7,7 @@ Question.delete_all
 Test.delete_all
 User.delete_all
 Category.delete_all
+Badge.delete_all
 
 user = User.new(first_name: 'user', last_name: 'user', email: 'user@user.com', password: 'user11')
 user.skip_confirmation!
@@ -61,3 +62,13 @@ test3.update!(ready_to_start: true)
 test4.update!(ready_to_start: true)
 test5.update!(ready_to_start: true)
 test6.update!(ready_to_start: true)
+
+Badge.create!(title: 'Hard worker',
+              body: 'You have successfully completed all tests in category!',
+              rule_type: 'category', rule_value: 'backend')
+Badge.create!(title: 'Lucky guy!',
+              body: 'You have successfully completed the test on the first attempt!',
+              rule_type: 'first')
+Badge.create!(title: 'Diligent',
+              body: 'You have completed all tests with this level of difficulty!',
+              rule_type: 'level', rule_value: 1)

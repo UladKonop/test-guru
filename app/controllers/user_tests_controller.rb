@@ -5,7 +5,9 @@ class UserTestsController < ApplicationController
 
   def show; end
 
-  def result; end
+  def result
+    BadgeIssueService.new(@user_test).call
+  end
 
   def update
     if params[:answer_ids].nil?
@@ -15,6 +17,7 @@ class UserTestsController < ApplicationController
     end
 
     if @user_test.completed?
+      @user_test.successfully_passed = true if @user_test.passed?
       TestsMailer.completed_test(@user_test).deliver_now
       redirect_to result_user_test_path(@user_test)
     else

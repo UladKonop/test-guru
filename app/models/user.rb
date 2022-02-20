@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id'
 
+  has_and_belongs_to_many :badges
+
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def tests_sort_by_level(level)

@@ -1,0 +1,7 @@
+<tr>
+  <td><%= badge.title %></td>
+  <td><%= badge.body %></td>
+  <td><%= badge.rule_value %></td>
+  <td><%= button_to "Show", admin_badge_path(id: badge.id), method: :get %>
+  <%= button_to "Edit", edit_admin_badge_path(id: badge.id), method: :get %></td>
+</tr>
