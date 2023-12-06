@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 2022_01_20_194246) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "badges", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "body", null: false
+    t.string "picture", default: "https://picsum.photos/200"
+    t.string "rule_type", null: false
+    t.string "rule_value", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_badges_on_title", unique: true
+  end
+
+  create_table "badges_users", id: false, force: :cascade do |t|
+    t.bigint "badge_id"
+    t.bigint "user_id"
+    t.index ["badge_id"], name: "index_badges_users_on_badge_id"
+    t.index ["user_id"], name: "index_badges_users_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -71,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_194246) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "correct_questions", default: 0
     t.bigint "question_id"
+    t.boolean "successfully_passed", default: false
     t.index ["question_id"], name: "index_user_tests_on_question_id"
     t.index ["test_id"], name: "index_user_tests_on_test_id"
     t.index ["user_id"], name: "index_user_tests_on_user_id"

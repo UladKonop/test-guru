@@ -5,7 +5,9 @@ class UserTestsController < ApplicationController
 
   def show; end
 
-  def result; end
+  def result
+    BadgeIssueService.new(@user_test).call
+  end
 
   def update
     if params[:answer_ids].nil?

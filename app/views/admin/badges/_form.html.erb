@@ -1,0 +1,25 @@
+<%= form_with model: [:admin, badge] do |form| %>
+  <%= render 'shared/errors', resource: badge %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, class: 'form-control' %>
+  </p>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body, class: 'form-control' %>
+  </p>
+
+  <p>
+    <%= form.label :rule_type %><br>
+    <%= form.select :rule_type, rules, class: 'form-select'%>
+  </p>
+
+  <p>
+    <%= form.label :rule_value %><br>
+    <%= form.text_field :rule_value, class: 'form-control' %>
+  </p>
+
+  <%= form.submit class: 'btn btn-primary' %>
+<% end %>
