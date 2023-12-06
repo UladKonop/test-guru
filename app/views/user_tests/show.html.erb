@@ -4,6 +4,10 @@
   <b><%= @user_test.question.body %></b>
 </p>
 
+<%= content_tag :div, nil,
+                class: 'user_timer',
+                data: { timer: @user_test.time_left }%>
+
 <%= content_tag :div,
                 class: 'progress',
                 data: { progress: (@user_test.serial_number_of_question.to_f) / @user_test.test.questions.count * 100 } do %>
@@ -26,5 +30,5 @@
 </p>
 
   <p><%= link_to 'Gist question', gist_user_test_path(@user_test), method: :post%></p>
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit 'Next', class: 'submit' %></p>
 <% end %>
